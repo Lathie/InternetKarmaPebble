@@ -8,22 +8,6 @@ var UI = require('ui');
 var Vector2 = require('vector2');
 var ajax = require('ajax');
 
-//var totalKarma;
-//var facebookKarma;
-//var twitterKarma;
-//var redditKarma;
-//var githubKarma;
-
-var totalKarma = new UI.Text({
-  position: new Vector2(0, 65),
-  size: new Vector2(144, 30),
-  font: 'gothic-24-bold',
-  //text: temperature,
-  textAlign: 'center'
-});
-
-
-
 var mainTitle = new UI.Text({
   position: new Vector2(0, 0),
   size: new Vector2(144, 30),
@@ -85,6 +69,12 @@ var github = new UI.Window({
   fullscreen : true  
 });
 
+main.add(mainTitle);
+facebook.add(facebookTitle);
+twitter.add(twitterTitle);
+reddit.add(redditTitle);
+github.add(githubTitle);
+
 //apicall
 var apiCall = 'fakefollowers';
 var URL = 'http://internetkarma.herokuapp.com/' + apiCall;
@@ -98,7 +88,50 @@ ajax(
     // Success!
     console.log('Successfully data!');
     
-    totalKarma.text = data.followers;
+    var totalKarma = new UI.Text({
+      position: new Vector2(0, 65),
+      size: new Vector2(144, 30),
+      font: 'gothic-24-bold',
+      text: data.followers,
+      textAlign: 'center'
+    });
+    main.add(totalKarma);
+    
+    var facebookKarma = new UI.Text({
+      position: new Vector2(0, 65),
+      size: new Vector2(144, 30),
+      font: 'gothic-24-bold',
+      text: data.followers,
+      textAlign: 'center'
+    });
+    facebook.add(facebookKarma);
+    
+    var twitterKarma = new UI.Text({
+      position: new Vector2(0, 65),
+      size: new Vector2(144, 30),
+      font: 'gothic-24-bold',
+      text: data.followers,
+      textAlign: 'center'
+    });
+    twitter.add(twitterKarma);
+    
+    var redditKarma = new UI.Text({
+      position: new Vector2(0, 65),
+      size: new Vector2(144, 30),
+      font: 'gothic-24-bold',
+      text: data.followers,
+      textAlign: 'center'
+    });
+    reddit.add(redditKarma);
+    
+    var githubKarma = new UI.Text({
+      position: new Vector2(0, 65),
+      size: new Vector2(144, 30),
+      font: 'gothic-24-bold',
+      text: data.followers,
+      textAlign: 'center'
+    });
+    github.add(githubKarma);
     
     //load the rest of the stuff
     
@@ -110,16 +143,11 @@ ajax(
 );
 
 
-main.add(mainTitle);
-main.add(totalKarma);
-facebook.add(facebookTitle);
-facebook.add(totalKarma);
-twitter.add(twitterTitle);
-twitter.add(totalKarma);
-reddit.add(redditTitle);
-reddit.add(totalKarma);
-github.add(githubTitle);
-github.add(totalKarma);
+
+
+
+
+
 main.show();
 
 
