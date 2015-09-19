@@ -8,36 +8,86 @@ var UI = require('ui');
 var Vector2 = require('vector2');
 var ajax = require('ajax');
 
-var main = new UI.Card({
-  title: 'InternetKarma',
-  //icon: 'images/menu_icon.png',
-  //subtitle: location + ", " + temperature,
-  //body: description
+//var totalKarma;
+//var facebookKarma;
+//var twitterKarma;
+//var redditKarma;
+//var githubKarma;
+
+var totalKarma = new UI.Text({
+  position: new Vector2(0, 65),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  //text: temperature,
+  textAlign: 'center'
 });
 
-var facebook = new UI.Card({
-  title:'FacebookKarma',
-  
+
+
+var mainTitle = new UI.Text({
+  position: new Vector2(0, 0),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  text: 'InternetKarma',
+  textAlign: 'center'
 });
 
-var twitter = new UI.Card({
-  title:'TwitterKarma',
-  
+var facebookTitle = new UI.Text({
+  position: new Vector2(0, 0),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  text: 'FacebookKarma',
+  textAlign: 'center'
 });
 
-var reddit = new UI.Card({
-  title:'RedditKarma',
-  
+var twitterTitle = new UI.Text({
+  position: new Vector2(0, 0),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  text: 'twitterKarma',
+  textAlign: 'center'
 });
 
-var github = new UI.Card({
-  title:'GithubKarma',
-  
+var redditTitle = new UI.Text({
+  position: new Vector2(0, 0),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  text: 'redditKarma',
+  textAlign: 'center'
 });
 
-//weather stuff
-var cityName = 'Urbana';
-var URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName;
+var githubTitle = new UI.Text({
+  position: new Vector2(0, 0),
+  size: new Vector2(144, 30),
+  font: 'gothic-24-bold',
+  text: 'githubKarma',
+  textAlign: 'center'
+});
+
+var main = new UI.Window({
+  fullscreen : true
+
+});
+
+var facebook = new UI.Window({
+  fullscreen : true
+});
+
+var twitter = new UI.Window({
+  fullscreen : true
+});
+
+var reddit = new UI.Window({
+  fullscreen : true
+});
+
+var github = new UI.Window({
+  fullscreen : true  
+});
+
+//apicall
+var apiCall = 'fakefollowers';
+var URL = 'http://internetkarma.herokuapp.com/' + apiCall;
 
 ajax(
   {
@@ -48,19 +98,9 @@ ajax(
     // Success!
     console.log('Successfully data!');
     
-   var location = data.name;
-   var temperature = Math.round(data.main.temp - 273.15) + 'C';
+    totalKarma.text = data.followers;
     
-   var description = data.weather[0].description; // that uppercase tho
-   //description = description.charAt(0).toUpperCase() + description.substring(1);
-    
-    main.subtitle(location + ", " + temperature);
-    main.body(description);
-    
-    facebook.subtitle(temperature);
-    twitter.subtitle(temperature);
-    reddit.subtitle(temperature);
-    github.subtitle(temperature);
+    //load the rest of the stuff
     
   },
   function(error) {
@@ -69,10 +109,46 @@ ajax(
   }
 );
 
+
+main.add(mainTitle);
+main.add(totalKarma);
+facebook.add(facebookTitle);
+facebook.add(totalKarma);
+twitter.add(twitterTitle);
+twitter.add(totalKarma);
+reddit.add(redditTitle);
+reddit.add(totalKarma);
+github.add(githubTitle);
+github.add(totalKarma);
 main.show();
 
-//END SETUP STUFF I THINK
 
+
+//switching logic
+main.on('click', 'select', function(e) {
+  var wind = new UI.Window({
+    fullscreen: true,
+  });
+  
+  var textfield1 = new UI.Text({
+    position: new Vector2(0, 0),
+    size: new Vector2(144, 30),
+    font: 'gothic-24-bold',
+    text: 'TESTING TEST',
+    textAlign: 'top'
+  });
+  
+  var textfield = new UI.Text({
+    position: new Vector2(0, 65),
+    size: new Vector2(144, 30),
+    font: 'gothic-24-bold',
+    text: 'Text Anywhere!',
+    textAlign: 'center'
+  });
+  wind.add(textfield1);
+  wind.add(textfield);
+  wind.show();
+});
 
 //main
 main.on('click', 'up', function(e) {
