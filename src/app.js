@@ -16,25 +16,26 @@ var main = new UI.Card({
 });
 
 var facebook = new UI.Card({
-  title:'InternetKarma',
+  title:'FacebookKarma',
   
 });
 
 var twitter = new UI.Card({
-  title:'InternetKarma',
+  title:'TwitterKarma',
   
 });
 
 var reddit = new UI.Card({
-  title:'InternetKarma',
+  title:'RedditKarma',
   
 });
 
 var github = new UI.Card({
-  title:'InternetKarma',
+  title:'GithubKarma',
   
 });
 
+//weather stuff
 var cityName = 'Urbana';
 var URL = 'http://api.openweathermap.org/data/2.5/weather?q=' + cityName;
 
@@ -56,6 +57,10 @@ ajax(
     main.subtitle(location + ", " + temperature);
     main.body(description);
     
+    facebook.subtitle(temperature);
+    twitter.subtitle(temperature);
+    reddit.subtitle(temperature);
+    github.subtitle(temperature);
     
   },
   function(error) {
@@ -66,8 +71,54 @@ ajax(
 
 main.show();
 
+//END SETUP STUFF I THINK
+
+
+//main
+main.on('click', 'up', function(e) {
+  github.show();
+});
 
 main.on('click', 'down', function(e) {
-
   facebook.show();
 });
+
+//facebook
+facebook.on('click', 'up', function(e) {
+  main.show();
+});
+
+facebook.on('click', 'down', function(e) {
+  twitter.show();
+});
+
+//twitter
+twitter.on('click', 'up', function(e) {
+  facebook.show();
+});
+
+twitter.on('click', 'down', function(e) {
+  reddit.show();
+});
+
+//reddit
+reddit.on('click', 'up', function(e) {
+  twitter.show();
+});
+
+reddit.on('click', 'down', function(e) {
+  github.show();
+});
+
+
+//github
+github.on('click', 'up', function(e) {
+  reddit.show();
+});
+
+github.on('click', 'down', function(e) {
+  main.show();
+});
+
+
+
