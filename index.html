@@ -23,7 +23,7 @@
           <textarea cols="40" rows="8" name="name" id="name"></textarea>
         </div>
 
-        <div class="ui-body ui-body-b">
+        <div class="ui-body ui-body-b" id="clickable">
           <fieldset class="ui-grid-a">
               <!--<div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>-->
               <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Submit</button></div>
@@ -35,7 +35,7 @@
     <script>
       function saveOptions() {
          var options = {
-          'email': $("#name").val(),
+          'email': $('name').val(),
 
         }
         return options;
@@ -52,7 +52,7 @@
 
 		*/	
 			
-        $("#b-submit").click(function() {
+        $('clickable).on('click', '#b-submit', function() {
           console.log("Submit"	);
 		  //saveOptions();
           //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions())); 
