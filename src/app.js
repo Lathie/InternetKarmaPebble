@@ -106,7 +106,7 @@ reddit.add(redditTitle);
 github.add(githubTitle);
 insta.add(instaTitle);
 
-var URL = 'http://68d39f36.ngrok.com/getByEmail/' + Settings.option('email');
+var URL = 'http://746cec7c.ngrok.com/getByEmail/' + Settings.option('email');
 
 ajax(
   {
