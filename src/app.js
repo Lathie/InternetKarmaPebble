@@ -13,7 +13,7 @@ var Settings = require('settings');
 
 // Set a configurable with the open callback
 Settings.config(
-  { url: 'http://assets.getpebble.com.s3-website-us-east-1.amazonaws.com/pebble-js/configurable.html'},
+  { url: 'http://lathie.github.io/InternetKarmaPebble/'},
   function(e) {
     console.log('opening configurable');
     Settings.option('email', '');
