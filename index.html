@@ -34,7 +34,7 @@
     </div>
     <script>
       function saveOptions() {
-        var email = $("#name").val();
+        var email : $("#name").val();
 		//var fbun = 'niuvictor';
 		return fbem;
       }
@@ -52,7 +52,7 @@
 		  //saveOptions();
           //var location = "pebblejs://close#" + email;
 		  //var return_to = getQueryParam('return_to', 'pebblejs://close#');
-		  document.location = return_to + saveOptions();
+		  document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions()));
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
