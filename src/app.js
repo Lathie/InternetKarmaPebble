@@ -104,6 +104,7 @@ facebook.add(facebookTitle);
 twitter.add(twitterTitle);
 reddit.add(redditTitle);
 github.add(githubTitle);
+insta.add(instaTitle);
 
 var URL = 'http://68d39f36.ngrok.com/getByEmail/' + Settings.option('email');
 
@@ -263,6 +264,4 @@ insta.on('click', 'up', function(e) {
 insta.on('click', 'down', function(e) {
   main.show();
 });
-
-
 
