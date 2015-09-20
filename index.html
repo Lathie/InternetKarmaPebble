@@ -51,8 +51,19 @@
         });
 
 		*/	
-			
-        $(document).on('click', '#b-submit', function() {
+		$(document).ready(function(){
+			$("#b-submit").click(function(){
+			// your code goes here
+				console.log("Submit");
+				var return_to = getQueryParam('return_to', 'pebblejs://close#');
+				console.log("Warping to: " + location);
+				console.log(location);
+				document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions())); 
+			});
+		});
+		
+/*		
+        $(document).ready('click', '#b-submit', function() {
           console.log("Submit"	);
 		  //saveOptions();
           //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions())); 
@@ -61,10 +72,10 @@
           console.log("Warping to: " + location);
           console.log(location);
 		  //document.location = location;
-          document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions())); ;
+          document.location = return_to + encodeURIComponent(JSON.stringify(saveOptions())); 
         });
 
-      });
+      });*/
     </script>
   </body>
 </html>
