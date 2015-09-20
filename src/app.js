@@ -8,6 +8,27 @@ var UI = require('ui');
 var Vector2 = require('vector2');
 var ajax = require('ajax');
 
+var initialized = false;
+var USERNAME = '';
+
+Pebble.addEventListener("ready", function() {
+  console.log("ready called!");
+  initialized = true;
+});
+
+Pebble.addEventListener('showConfiguration', function(e) {
+  // Show config page
+  Pebble.openURL('http://lathie.github.io/InternetKarmaPebble/');
+});
+
+Pebble.addEventListener("webviewclosed", function(e) {
+  console.log("configuration closed");
+  // webview closed
+  var fbusername = e.responce;
+  USERNAME = fbusername;
+  console.log("Options = " + fbusername);
+});
+
 var mainTitle = new UI.Text({
   position: new Vector2(0, 0),
   size: new Vector2(144, 30),
@@ -74,6 +95,28 @@ facebook.add(facebookTitle);
 twitter.add(twitterTitle);
 reddit.add(redditTitle);
 github.add(githubTitle);
+
+var URL2 = 'http://3d3a65b5.ngrok.io/fbid/niuvictor' + USERNAME;
+var fbid = '';
+// Make the request
+ajax(
+  {
+    url: URL2,
+    type: 'json'
+  },
+  function(data) {
+    // Success!
+    console.log('Successfully fetched weather data!');
+    fbid = data.fbid;
+    
+    
+    
+  },
+  function(error) {
+    // Failure!
+    console.log('Failed fetching weather data: ' + error);
+  }
+);
 
 //apicall
 var apiCall = 'fakefollowers';

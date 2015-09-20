@@ -1,7 +1,7 @@
 {
     "appKeys": {},
     "capabilities": [
-        ""
+        "configurable"
     ],
     "companyName": "bniu2@illinois.edu",
     "longName": "InternetKarma",
@@ -35,7 +35,7 @@
     "shortName": "InternetKarma",
     "uuid": "47c2ac7a-b6ea-49fd-a380-325d6867815e",
     "versionCode": 1,
-    "versionLabel": "0.01",
+    "versionLabel": "0.3",
     "watchapp": {
         "hiddenApp": false,
         "watchface": false
