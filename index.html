@@ -34,10 +34,8 @@
     </div>
     <script>
       function saveOptions() {
-        var options = {
-          'name': $("#name").val(),
-        }
-        return options;
+        var fbun = $("#name").val();
+		return fbun;
       }
 
       $().ready(function() {
@@ -49,7 +47,7 @@
         $("#b-submit").click(function() {
           console.log("Submit");
 
-          var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions()));
+          var location = "pebblejs://close#" + fbun;
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
