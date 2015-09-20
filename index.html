@@ -25,7 +25,7 @@
 
         <div class="ui-body ui-body-b">
           <fieldset class="ui-grid-a">
-              <div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>
+              <!--<div class="ui-block-a"><button type="submit" data-theme="d" id="b-cancel">Cancel</button></div>-->
               <div class="ui-block-b"><button type="submit" data-theme="a" id="b-submit">Submit</button></div>
             </fieldset>
           </div>
@@ -34,11 +34,14 @@
     </div>
     <script>
       function saveOptions() {
-        var email : $("#name").val();
-		//var fbun = 'niuvictor';
-		return fbem;
-      }
+         var options = {
+          'email': $("#name").val(),
 
+        }
+        return options;
+      }
+		
+		/*
       $().ready(function() {
         $("#b-cancel").click(function() {
           console.log("Cancel");
@@ -47,6 +50,8 @@
           //document.location = "pebblejs://close";
         });
 
+		*/	
+			
         $("#b-submit").click(function() {
           console.log("Submit");
 		  //saveOptions();
