@@ -34,7 +34,7 @@
     </div>
     <script>
       function saveOptions() {
-        var fbem = $("#name").val();
+        var email = $("#name").val();
 		//var fbun = 'niuvictor';
 		return fbem;
       }
@@ -42,17 +42,17 @@
       $().ready(function() {
         $("#b-cancel").click(function() {
           console.log("Cancel");
-		  //var return_to = getQueryParam('return_to', 'pebblejs://close#');	
-		  //document.location = return_to;
-          document.location = "pebblejs://close";
+		  var return_to = getQueryParam('return_to', 'pebblejs://close#');	
+		  document.location = return_to;
+          //document.location = "pebblejs://close";
         });
 
         $("#b-submit").click(function() {
           console.log("Submit");
 		  //saveOptions();
-          var location = "pebblejs://close#" + fbun;
+          //var location = "pebblejs://close#" + email;
 		  //var return_to = getQueryParam('return_to', 'pebblejs://close#');
-		  //document.location = return_to + saveOptions();
+		  document.location = return_to + saveOptions();
           console.log("Warping to: " + location);
           console.log(location);
           document.location = location;
