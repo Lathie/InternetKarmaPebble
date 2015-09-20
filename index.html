@@ -35,7 +35,7 @@
     <script>
       function saveOptions() {
          var options = {
-          'email': $('name').val(),
+          'email': $('name').val()
 
         }
         return options;
@@ -52,7 +52,7 @@
 
 		*/	
 			
-        $('clickable).on('click', '#b-submit', function() {
+        $(document).on('click', '#b-submit', function() {
           console.log("Submit"	);
 		  //saveOptions();
           //var location = "pebblejs://close#" + encodeURIComponent(JSON.stringify(saveOptions())); 
